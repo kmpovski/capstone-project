@@ -1,0 +1,47 @@
+.hero {
+  padding-top: 2rem;
+  background-color: #495E57;
+}
+
+.hero .container {
+  grid-template-columns: auto auto;
+}
+
+.description {
+  grid-column: 1;
+}
+
+.description h1 {
+  color: #F4CE14;
+}
+
+.description h2 {
+  color: #FFFFFF;
+}
+
+.description p {
+  margin-top: 1.5rem;
+  max-width: 55%;
+  color: #FFFFFF;
+}
+
+.description .btn-primary {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.description .btn-primary:hover,
+.description .btn-primary:focus {
+  border-color: #F4CE14;
+}
+
+.hero-img {
+  grid-column: 2;
+  height: 22rem;
+  width: 20rem;
+  margin-bottom: -5rem;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+

@@ -1,0 +1,29 @@
+@media (max-width: 915px) {
+  .about-us {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .about-us-chefs {
+    grid-column: 1;
+    flex-direction: row;
+  }
+
+  .about-us-chefs img {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 715px) {
+  .about-us {
+    grid-template-rows: repeat(3, auto);
+  }
+
+  .about-us-images {
+    flex-direction: column;
+  }
+
+  .about-us-images img {
+    max-width: 100%;
+  }
+}

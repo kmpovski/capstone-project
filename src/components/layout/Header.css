@@ -1,0 +1,13 @@
+header {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+}
+
+header > img {
+    grid-column: 1;
+    padding: 2px;
+    justify-self: center;
+    align-self: center;
+    border: 1px solid black;
+}

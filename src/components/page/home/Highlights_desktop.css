@@ -1,0 +1,16 @@
+.highlights {
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  padding-top: 7rem;
+  padding-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.highlights-header {
+  display: flex;
+  grid-column: 1 / 4;
+  grid-row: 1;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+

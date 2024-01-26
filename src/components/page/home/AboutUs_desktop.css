@@ -1,0 +1,32 @@
+.about-us {
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  padding-top: 2rem;
+}
+
+.about-us-description {
+  grid-column: 1;
+}
+
+.about-us-description p {
+  padding-top: 1.5rem;
+}
+
+.about-us-images {
+  grid-column: 2;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-us-images img {
+  border-radius: 1rem;
+}
+
+.about-us-images img.picture-a {
+  z-index: 2;
+}
+.about-us-images img.picture-b {
+  z-index: 1;
+  transform: scaleX(-1) translate(80px, -80px);
+}

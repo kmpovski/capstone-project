@@ -1,0 +1,7 @@
+.nav-bar {
+    align-self: center;
+}
+.nav-bar li {
+    display: inline-block;
+    margin: 0 10px;
+}
