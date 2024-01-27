@@ -1,33 +1,6 @@
 
 import './Testimonials.css';
 
-const customers = [
-  {
-    fullName: 'Maria Sanchez',
-    rating: [1, 1, 1, 1, 0.5],
-    says: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  },
-  {
-    fullName: 'Antony Clifton',
-    rating: [1, 1, 1, 1, 1],
-    says: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  },
-  {
-    fullName: 'Tamika Jackson',
-    rating: [1, 1, 1, 1, 0.5],
-    says: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  },
-  {
-    fullName: 'Brandon Ming',
-    rating: [1, 1, 1, 1],
-    says: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-      eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
-  },
-];
-
 const Testimonials = () => {
   return (
     <section className="testimonials">

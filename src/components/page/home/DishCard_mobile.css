@@ -1,5 +1,6 @@
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
   .dish-card {
     grid-row: auto;
+    grid-column: auto;
   }
 }

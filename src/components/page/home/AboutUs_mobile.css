@@ -1,29 +1,37 @@
-@media (max-width: 915px) {
+@media (max-width: 1200px) {
   .about-us {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(2, auto);
   }
 
-  .about-us-chefs {
+  .about-us-description {
     grid-column: 1;
-    flex-direction: row;
+    grid-row: 1;
   }
 
-  .about-us-chefs img {
-    max-width: 50%;
-  }
-}
-
-@media (max-width: 715px) {
-  .about-us {
-    grid-template-rows: repeat(3, auto);
+  .about-us-description p {
+    max-width: 100%;
   }
 
   .about-us-images {
-    flex-direction: column;
+    grid-column: 1;
+    grid-row: 2;
   }
+  .about-us-images {
+    justify-self: center;
+  }
+}
 
-  .about-us-images img {
+@media (max-width: 850px) {
+  img.picture-a,
+  img.picture-b{
+    z-index: unset;
+    transform: translate(0, 0);
     max-width: 100%;
+  }
+  
+  img.picture-b{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 }

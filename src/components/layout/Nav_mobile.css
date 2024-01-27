@@ -1,0 +1,14 @@
+@media (max-width: 600px) {
+    .nav-bar {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: display 0s, visibility 0.2s, opacity 0.5s linear;
+        align-self: center;
+    }
+    .nav-bar ul li {
+        display: block;
+        margin: 0 10px;
+    }
+}
+

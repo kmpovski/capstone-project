@@ -11,3 +11,7 @@ header > img {
     align-self: center;
     border: 1px solid black;
 }
+
+.hamburger-icon-mobile {
+    display: none;
+}

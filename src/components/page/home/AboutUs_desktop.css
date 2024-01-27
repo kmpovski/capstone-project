@@ -10,6 +10,7 @@
 
 .about-us-description p {
   padding-top: 1.5rem;
+  max-width: 85%;
 }
 
 .about-us-images {
@@ -23,10 +24,10 @@
   border-radius: 1rem;
 }
 
-.about-us-images img.picture-a {
+img.picture-a {
   z-index: 2;
 }
-.about-us-images img.picture-b {
+img.picture-b {
   z-index: 1;
   transform: scaleX(-1) translate(80px, -80px);
 }

@@ -1,4 +1,5 @@
-import './Footer.css'
+import './Footer_mobile.css';
+import './Footer_desktop.css';
 import routing from '../../utils/routing';
 import logo from '../../assets/LL20@4x_u.png';
 import { Link } from 'react-router-dom';
@@ -24,7 +25,7 @@ const Footer = () => {
               )}
             </ul>
           </nav>
-          <div className="footer-contact">
+          <div className="contact">
             <h4>Contact</h4>
             <address>
               678 Pisa Ave, Chicago, IL 60611 <br/>

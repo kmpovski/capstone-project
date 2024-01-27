@@ -1,4 +1,5 @@
-import './Nav.css';
+import './Nav_mobile.css';
+import './Nav_desktop.css';
 import routing from '../../utils/routing';
 import { Link } from 'react-router-dom';
 
