@@ -8,7 +8,7 @@ const Nav = () => {
       <nav className='nav-bar'>
         <ul>
           {routing.map((route) => 
-            <li key={route.name}>
+            <li className="link-nav" key={route.name}>
               <Link to={route.link}>{route.name}</Link>
             </li>
           )}

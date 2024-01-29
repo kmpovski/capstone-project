@@ -56,11 +56,5 @@ a {
   border: 0.1875rem solid #F4CE14;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
-  background-color: #495E57;
-  border-color: #495E57;
-  color: #FFFFFF;
-}
 
 

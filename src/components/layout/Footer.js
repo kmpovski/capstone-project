@@ -4,7 +4,7 @@ import routing from '../../utils/routing';
 import logo from '../../assets/LL20@4x_u.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram, faXTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
     return (
@@ -27,17 +27,17 @@ const Footer = () => {
           </nav>
           <div className="contact">
             <h4>Contact</h4>
-            <address>
-              678 Pisa Ave, Chicago, IL 60611 <br/>
-              (312) 593-2744 <br/>
-              <a href="mailto:customer@littlelemon.com">customer@littlelemon.com</a>
-            </address>
+            <address><a href="mailto:customer@littlelemon.com">littlelemon@gmail.com</a></address>
+            <a href="tel:+35319058777"><em>01-905 8777</em> </a>
           </div>
           <div className="social-media">
             <h4>Social Media Links</h4>
-            <a href={'https://www.facebook.com'}><FontAwesomeIcon icon={faFacebook} size='xl'/> </a>
-            <a href={'https://www.instagram.com'}><FontAwesomeIcon icon={faInstagram} size='xl'/> </a>
-            <a href={'https://www.whatsapp.com'}><FontAwesomeIcon icon={faWhatsapp} size='xl'/> </a>
+            <div className="social-links">
+              <a href={'https://www.facebook.com'}><FontAwesomeIcon icon={faFacebook} size='lg'/> </a>
+              <a href={'https://www.whatsapp.com'}><FontAwesomeIcon icon={faXTwitter} size='lg'/> </a>
+              <a href={'https://www.instagram.com'}><FontAwesomeIcon icon={faInstagram} size='lg'/> </a>
+              <a href={'https://www.youtube.com'}><FontAwesomeIcon icon={faYoutube} size='lg'/> </a>
+            </div>
           </div>
         </div>
       </footer>

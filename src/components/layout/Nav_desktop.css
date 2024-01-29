@@ -3,5 +3,11 @@
 }
 .nav-bar li {
     display: inline-block;
-    margin: 0 10px;
+    padding: 0 10px;
 }
+
+.link-nav:hover {
+    background-color: #F4CE14;
+    color: black;
+    border-radius: 16px;
+  }

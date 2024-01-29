@@ -3,7 +3,7 @@ import Highlights from './Highlights';
 import Testimonials from './Testimonials';
 import AboutUs from './AboutUs';
 
-function Home() {
+const Home = () => {
   return (
     <>
       <Hero />

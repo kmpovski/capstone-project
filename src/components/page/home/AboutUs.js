@@ -3,7 +3,7 @@ import './AboutUs_mobile.css';
 import MarioAndAdrianA from '../../../assets/Mario_and_Adrian_A.jpg';
 import MarioAndAdrianB from '../../../assets/Mario_and_Adrian_B.jpg';
 
-const OurStory = () => {
+const AboutUs = () => {
   return (
     <section className="content grid about-us">
       <div className="about-us-description">
@@ -26,11 +26,11 @@ const OurStory = () => {
         </p>
       </div>
       <div className="about-us-images">
-        <img className="picture-a" src={MarioAndAdrianA} alt="Mario and Adrian picture" />
-        <img className="picture-b" src={MarioAndAdrianB} alt="Mario and Adrian picture" />
+        <img className="picture-a" src={MarioAndAdrianA} alt="Mario and Adrian" />
+        <img className="picture-b" src={MarioAndAdrianB} alt="Mario and Adrian laughing" />
       </div>
     </section>
   );
 };
 
-export default OurStory;
+export default AboutUs;
