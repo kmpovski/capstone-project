@@ -1,44 +1,85 @@
 
-import { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from 'yup';
+import {
+  Button,
+  FormControl,
+  FormErrorMessage,
+  FormLabel,
+  Input,
+  Select,
+  VStack,
+} from "@chakra-ui/react";
 import './BookingForm.css';
 
 const BookingForm = ({availableTimes, dispatch, submitForm}) => {
-    const [date, setDate] = useState(new Date().toISOString().substring(0,10));
-    const [time, setTime] = useState([""]);
-    const [nbGuests, setNbGuests] = useState(2);
-    const [occasion, setOccasion] = useState("birthday");
+    const formik = useFormik({
+        initialValues: {
+          date: new Date().toISOString().substring(0,10),
+          time: availableTimes[0],
+          nbGuest: "2",
+          occasion: "birthday"
+        },
+        onSubmit: (values) => {
+            submitForm(values);
+        },
+        validationSchema: Yup.object({
+          date: Yup.date().required("Required").min(new Date().toISOString().substring(0,10), "Date can't be before today"),
+          time: Yup.string().required("Required"),
+          nbGuest: Yup.number().min(1, 'You need to be at least 1').max(10, 'For more than 10 people, please call us').required("Required"),
+          occasion: Yup.string().required("Required"),
+        }),
+      });
 
     const handleDateChange = (e) => {
-        setDate(e.target.value);
+        formik.setFieldValue("date", e.target.value);
         dispatch(e.target.value);
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        submitForm({date, time, nbGuests, occasion});
-    };
-
     return (
-      <>
-        <h3 className="section-title content">Book Now</h3>
-        <form style={{display: "grid", maxWidth: "200", gap: "20"}} className="content" onSubmit={handleSubmit}>
-            <label htmlFor="res-date">Choose date</label>
-            <input type="date" id="res-date" value={date} onChange={handleDateChange} required />
-            <label htmlFor="res-time">Choose time</label>
-            <select id="res-time" value={time} onChange={(e) => {setTime(e.target.value)}} required >
-            {availableTimes?.map(currentTime => <option key={currentTime}>{currentTime}</option>)}
-            </select>
-            <label htmlFor="guests">Number of guests</label>
-            <input type="number" placeholder="1" min="1" max="10" id="guests" value={nbGuests} onChange={(e) => {setNbGuests(e.target.value)}} required />
-            <label htmlFor="occasion">Occasion</label>
-            <select id="occasion" value={occasion} onChange={(e) => {setOccasion(e.target.value)}} required >
-                <option value='Birthday'>Birthday</option>
-                <option value='Anniversary'>Anniversary</option>
-                <option value='Other'>Other</option>
-            </select>
-            <input type="submit" className="btn-primary submit-btn" value="Make Your reservation" />
-        </form>
-      </>
+        <>
+            <h3 className="section-title content">Book Now</h3>
+            <form onSubmit={formik.handleSubmit} className="content">
+                <VStack>
+                <FormControl isInvalid={formik.touched.date && formik.errors.date}>
+                    <FormLabel htmlFor="date" aria-label="date">Choose date *</FormLabel>
+                    <Input type="date"
+                    id="date"
+                    onChange={handleDateChange}
+                    value={formik.getFieldProps("date").value}
+                    />
+                    <FormErrorMessage data-testid="dateError">{formik.errors.date}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={formik.touched.time && formik.errors.time}>
+                    <FormLabel htmlFor="time" aria-label="time">Choose time *</FormLabel>
+                    <Select id="time" {...formik.getFieldProps("time")}>
+                        {availableTimes?.map(currentTime => <option key={currentTime}>{currentTime}</option>)}
+                    </Select>
+                    <FormErrorMessage data-testid="timeError">{formik.errors.time}</FormErrorMessage>
+                </FormControl>
+                <FormControl isInvalid={formik.touched.nbGuest && formik.errors.nbGuest}>
+                    <FormLabel htmlFor="nbGuest" aria-label="number of guests">Number of guests *</FormLabel>
+                    <Input type="range" min={1} max={10}
+                    id="nbGuest"
+                    {...formik.getFieldProps("nbGuest")}
+                    />
+                    <p>{formik.getFieldProps("nbGuest").value}</p>
+                    <FormErrorMessage>{formik.errors.nbGuest}</FormErrorMessage>
+                </FormControl>
+                <FormControl>
+                    <FormLabel htmlFor="occasion" aria-label="occasion">Occasion</FormLabel>
+                    <Select id="occasion" {...formik.getFieldProps("occasion")}>
+                        <option value="birthday">Birthday</option>
+                        <option value="anniversary">Anniversary</option>
+                        <option value="other">Other</option>
+                    </Select>
+                </FormControl>
+                <Button type="submit" width="full" className="btn-primary submit-btn" aria-label="On Click">
+                    Make your reservation
+                </Button>
+                </VStack>
+            </form>
+        </>
     );
 }
 

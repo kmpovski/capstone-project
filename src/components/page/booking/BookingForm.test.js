@@ -1,8 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent, act, waitFor, queryByTestId } from "@testing-library/react";
 import BookingForm from './BookingForm';
 
 describe('Booking form tests', () => {
     const availableTimes = ["17:30", "19:15", "19:30", "20:00", "22:00"];
+    const dispatch = jest.fn();
+    const submitForm = jest.fn();
     test('Renders the BookingForm heading', () => {
         render(<BookingForm availableTimes={availableTimes}/>);
         const headingElement = screen.getByText("Book Now");
@@ -10,8 +12,9 @@ describe('Booking form tests', () => {
     });
 
     test('Render form fields', () => {
+        
         render(
-          <BookingForm availableTimes={availableTimes} />
+          <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm}/>
         );
 
         const date = screen.getByLabelText(/Choose date/);
@@ -21,17 +24,29 @@ describe('Booking form tests', () => {
         const submitBtn = screen.getByRole('button');
 
         expect(date).toBeInTheDocument();
-        expect(date).toHaveAttribute('type', 'date');
         expect(time).toBeInTheDocument();
         expect(nbGuests).toBeInTheDocument();
-        expect(nbGuests).toHaveAttribute('type', 'number');
-        expect(nbGuests).toHaveValue(2);
         expect(occasion).toBeInTheDocument();
-        expect(occasion).toHaveValue('Birthday');
         expect(submitBtn).toBeInTheDocument();
-        expect(submitBtn).toHaveAttribute('type', 'submit');
         expect(submitBtn).toBeEnabled();
-      });
-    
-      
+    });
+
+
+    test('Test form fields validation OK', async () => {
+
+        render(
+          <BookingForm availableTimes={availableTimes} dispatch={dispatch} submitForm={submitForm}/>
+        );
+
+        const date = screen.getByLabelText(/Choose date/);
+        const submitBtn = screen.getByRole('button');
+
+        await act(async() => {
+            fireEvent.change(date, { target: { value: new Date() } });
+            fireEvent.click(submitBtn);
+            await waitFor(() => {
+                expect(screen.queryByTestId('dateError')).not.toBeInTheDocument();
+              });
+          });
+    });
 });

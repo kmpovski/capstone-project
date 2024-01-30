@@ -1,7 +1,8 @@
 input, select {
     padding: 0 10px;
     border-radius: 16px;
-    max-width: 400px;
+    min-width: 100px;
+    max-width: 200px;
 }
 
 label {
@@ -16,9 +17,32 @@ label {
 }
 
 form {
-    justify-content: center;
+    text-align:center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
 }
 
 h3.section-title.content {
     margin-top: 2rem;
+}
+
+div.chakra-select__icon-wrapper {
+    display: none;
+}
+
+div.chakra-form__error-message {
+    color:red;
+    font-size: 10pt;
+}
+
+div.chakra-stack {
+    grid-column: 2;
+    grid-row:1;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+div.chakra-form-control {
+    width: 100%;
 }
